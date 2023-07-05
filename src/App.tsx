@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ProtectedRoute from "./pages/ProtectedRoute";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import TodoList from "./pages/TodoList";
@@ -6,19 +7,35 @@ import TodoList from "./pages/TodoList";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <SignIn />,
+    element: (
+      <ProtectedRoute>
+        <SignIn />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/signin",
-    element: <SignIn />,
+    element: (
+      <ProtectedRoute>
+        <SignIn />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/signup",
-    element: <SignUp />,
+    element: (
+      <ProtectedRoute>
+        <SignUp />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/todo",
-    element: <TodoList />,
+    element: (
+      <ProtectedRoute>
+        <TodoList />
+      </ProtectedRoute>
+    ),
   },
 ]);
 
