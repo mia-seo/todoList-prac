@@ -10,11 +10,11 @@ export default function ProtectedRoute({ children }: Props) {
   const { isLoggedIn } = getAuth();
 
   if (location.pathname === "/todo" && !isLoggedIn) {
-    return <Navigate to="/signin" />;
+    return <Navigate to="/signin" replace />;
   }
 
   if ((location.pathname === "/signin" || "/signup") && isLoggedIn) {
-    return <Navigate to="/todo" />;
+    return <Navigate to="/todo" replace />;
   }
 
   return <>{children}</>;
