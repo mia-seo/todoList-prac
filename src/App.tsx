@@ -8,7 +8,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <ProtectedRoute>
+      <ProtectedRoute to="/todo">
         <SignIn />
       </ProtectedRoute>
     ),
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
   {
     path: "/signin",
     element: (
-      <ProtectedRoute>
+      <ProtectedRoute to="/todo">
         <SignIn />
       </ProtectedRoute>
     ),
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: (
-      <ProtectedRoute>
+      <ProtectedRoute to="/todo">
         <SignUp />
       </ProtectedRoute>
     ),
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
   {
     path: "/todo",
     element: (
-      <ProtectedRoute>
+      <ProtectedRoute to="/signin">
         <TodoList />
       </ProtectedRoute>
     ),

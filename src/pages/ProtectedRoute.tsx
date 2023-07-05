@@ -3,18 +3,16 @@ import { getAuth } from "../utils/auth";
 
 type Props = {
   children: React.ReactNode;
+  to: string;
 };
 
-export default function ProtectedRoute({ children }: Props) {
+export default function ProtectedRoute({ children, to }: Props) {
   const location = useLocation();
   const { isLoggedIn } = getAuth();
+  console.log(location.pathname);
 
-  if (location.pathname === "/todo" && !isLoggedIn) {
-    return <Navigate to="/signin" replace />;
-  }
-
-  if ((location.pathname === "/signin" || "/signup") && isLoggedIn) {
-    return <Navigate to="/todo" replace />;
+  if (location.pathname === "/todo" ? !isLoggedIn : isLoggedIn) {
+    return <Navigate to={to} replace />;
   }
 
   return <>{children}</>;
