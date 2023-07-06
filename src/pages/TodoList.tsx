@@ -1,5 +1,14 @@
-export default function TodoList() {
-  console.log("jello");
+import TodoContainer from "../components/TodoContainer";
+import TodoCreater from "../components/TodoCreater";
+import { TodoProvider } from "../context/todoContext";
 
-  return <div>TodoList</div>;
+export default function TodoList() {
+  return (
+    <main>
+      <TodoProvider>
+        <TodoContainer />
+        <TodoCreater />
+      </TodoProvider>
+    </main>
+  );
 }

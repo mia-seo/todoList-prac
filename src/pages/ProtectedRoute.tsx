@@ -9,7 +9,6 @@ type Props = {
 export default function ProtectedRoute({ children, to }: Props) {
   const location = useLocation();
   const { isLoggedIn } = getAuth();
-  console.log(location.pathname);
 
   if (location.pathname === "/todo" ? !isLoggedIn : isLoggedIn) {
     return <Navigate to={to} replace />;
